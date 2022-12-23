@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Storage;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Post::factory(100)->create();
+        Storage::deleteDirectory('public/posts');
+        Storage::makeDirectory('public/posts');
+
+        \App\Models\Post::factory(3)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

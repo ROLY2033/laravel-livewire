@@ -15,11 +15,10 @@
                     <h2 class="text-2xl font-semibold leading-tight">Invoices</h2>
                 </div>
 
-                <div class="px-6 py-6">
+                <div class="px-6 py-6 flex items-center">
                     {{-- <input type="text" wire:model="search"> --}}
-                    <x-jet-input wire:model="search" class="w-full p-3" placeholder="ingrese la busqueda">
-
-                    </x-input>
+                    <x-jet-input wire:model="search" class="w-full p-3" placeholder="ingrese la busqueda"></x-jet-input>
+                    @livewire('create-post')
                 </div>
                 @if ($posts->count())
 
@@ -102,7 +101,8 @@
                                                 d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z" />
                                         </svg>
                                     </button> --}}
-                                    <a href="#">edit</a>
+                                    <img src="{{Storage::url($post->image)}}" alt="">
+                                    {{-- <a href="#">edit</a> --}}
                                 </td>
                             </tr>
                             @endforeach
